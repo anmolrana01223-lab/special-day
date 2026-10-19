@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Bestie! 🎂</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: white;
+    text-align: center;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #a18cd1);
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 18px;
+    position: relative;
+    z-index: 2;
+}
+
+.tag {
+    background: rgba(255,255,255,0.22);
+    border: 1px solid rgba(255,255,255,0.45);
+    border-radius: 30px;
+    padding: 9px 18px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: clamp(2.4rem, 9vw, 4.8rem);
+    line-height: 1.15;
+    text-shadow: 3px 4px 12px rgba(100, 0, 60, 0.2);
+}
+
+h1 span {
+    color: #fff3a3;
+}
+
+.subtitle {
+    margin-top: 18px;
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    line-height: 1.7;
+    max-width: 520px;
+}
+
+.cake {
+    font-size: clamp(5rem, 20vw, 8rem);
+    margin: 22px 0;
+    animation: bounce 2s infinite ease-in-out;
+    filter: drop-shadow(0 10px 15px rgba(90, 0, 50, 0.2));
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-12px) rotate(3deg); }
+}
+
+.card {
+    width: 100%;
+    max-width: 480px;
+    padding: 27px 22px;
+    background: rgba(255,255,255,0.17);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 25px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 15px 40px rgba(80, 0, 60, 0.15);
+}
+
+.card h2 {
+    font-size: 1.6rem;
+    margin-bottom: 14px;
+}
+
+.message {
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+button {
+    border: none;
+    border-radius: 50px;
+    padding: 15px 25px;
+    margin-top: 23px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #e84379;
+    background: white;
+    box-shadow: 0 6px 18px rgba(100,0,50,0.18);
+    transition: transform 0.2s, background 0.2s;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+    background: #fff5fa;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+#surprise {
+    display: none;
+    margin-top: 22px;
+    padding: 18px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.15);
+    line-height: 1.9;
+    animation: appear 0.7s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.footer {
+    margin-top: 28px;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.heart {
+    position: fixed;
+    bottom: -40px;
+    pointer-events: none;
+    z-index: 1;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+#confetti {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+@media (max-width: 480px) {
+    .container { padding: 28px 16px; }
+    .card { padding: 23px 17px; }
+    .subtitle { margin-top: 12px; }
+    button { width: 100%; max-width: 300px; }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="confetti"></canvas>
+
+<main class="container">
+
+    <div class="tag">💗 A SPECIAL DAY FOR MY BESTIE 💗</div>
+
+    <h1>Happy Birthday,<br><span id="friendName">Bestie!</span></h1>
+
+    <p class="subtitle">
+        Today is all about YOU! 🥳<br>
+        More smiles, more memories, and more crazy moments together!
+    </p>
+
+    <div class="cake">🎂</div>
+
+    <section class="card">
+        <h2>💌 A Little Message for You</h2>
+
+        <p class="message">
+            Life is so much more fun with a friend like you.
+            Thank you for every laugh, every silly moment,
+            and every beautiful memory we've shared.
+            You are not just my friend, you are family! 🫶
+            <br><br>
+            May your birthday be filled with love, happiness,
+            endless laughter, and all your favorite things. 🌈
+        </p>
+
+        <button onclick="showSurprise()">
+            🎁 Open Your Surprise
+        </button>
+
+        <div id="surprise">
+            <h2>🎉 You Are Amazing! 🎉</h2>
+            <p>
+                No matter how much time passes, I hope our
+                friendship always stays special.
+                Here's to more adventures, inside jokes,
+                unforgettable memories, and years of friendship! 💖
+                <br><br>
+                <strong>Happy Birthday, Best Friend! 🥳🧁💝</strong>
+            </p>
+        </div>
+    </section>
+
+    <div class="footer">
+        Made with 💖 just for you<br>
+        Best friends today, tomorrow & always ♾️
+    </div>
+
+</main>
+
+<script>
+// 🎊 CONFETTI ANIMATION
+const canvas = document.getElementById("confetti");
+const ctx = canvas.getContext("2d");
+
+let pieces = [];
+let animationId;
+
+function resizeCanvas() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    canvas.style.width = window.innerWidth + "px";
+    canvas.style.height = window.innerHeight + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
+function launchConfetti() {
+    const colors = [
+        "#ffeb3b", "#ff4081", "#ffffff",
+        "#7cffcb", "#a78bfa", "#ff9f43"
+    ];
+
+    for (let i = 0; i < 160; i++) {
+        pieces.push({
+            x: Math.random() * window.innerWidth,
+            y: -Math.random() * window.innerHeight,
+            size: Math.random() * 7 + 4,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            speed: Math.random() * 3 + 2,
+            drift: (Math.random() - 0.5) * 3,
+            rotation: Math.random() * 360,
+            spin: (Math.random() - 0.5) * 8,
+            shape: Math.random() > 0.5
+        });
+    }
+
+    if (!animationId) animateConfetti();
+}
+
+function animateConfetti() {
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+    pieces.forEach(p => {
+        p.x += p.drift;
+        p.y += p.speed;
+        p.rotation += p.spin;
+
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rotation * Math.PI / 180);
+        ctx.fillStyle = p.color;
+
+        if (p.shape) {
+            ctx.fillRect(-p.size / 2, -p.size / 2,
+                         p.size, p.size * 0.65);
+        } else {
+            ctx.beginPath();
+            ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        ctx.restore();
+    });
+
+    pieces = pieces.filter(p => p.y < window.innerHeight + 30);
+
+    if (pieces.length > 0) {
+        animationId = requestAnimationFrame(animateConfetti);
+    } else {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    }
+}
+
+// 💝 FLOATING HEARTS
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.textContent = ["💗", "💖", "💕", "✨", "💝"][
+        Math.floor(Math.random() * 5)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 18 + 16) + "px";
+    heart.style.animationDuration = (Math.random() * 4 + 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 9500);
+}
+
+// 🎁 SURPRISE BUTTON
+function showSurprise() {
+    const surprise = document.getElementById("surprise");
+
+    surprise.style.display = "block";
+    launchConfetti();
+
+    surprise.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+    });
+}
+
+// Start animations when the page loads
+launchConfetti();
+setInterval(createHeart, 700);
+
+// ✏️ PERSONALIZE YOUR FRIEND'S NAME HERE
+// Example: change "Bestie!" to "Ananya!"
+document.getElementById("friendName").textContent = "Bestie!";
+</script>
+
+</body>
+</html>
